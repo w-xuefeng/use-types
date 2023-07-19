@@ -1,0 +1,22 @@
+{
+  "name": "use-types",
+  "version": "0.0.2",
+  "description": "use type",
+  "main": "index.ts",
+  "type": "module",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "type",
+    "interface"
+  ],
+  "author": "w-xuefeng",
+  "license": "MIT"
+}
