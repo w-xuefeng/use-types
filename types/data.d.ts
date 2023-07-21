@@ -89,10 +89,65 @@ declare namespace useTypes.data {
   /**
    * common response type, data is T, form backend
    */
-  export interface Response<T> extends ICustomResponse, Record<string, any> {
+  export interface IResponse<T> extends ICustomResponse, Record<string, any> {
     success: boolean;
     code: number;
     message: string;
     data: T;
   }
+
+  /**
+   * Partial<T> but B in T
+   */
+  export type PartialBut<
+    T extends Record<string, any>,
+    B extends keyof T,
+  > = Partial<Omit<T, B>> & Pick<T, B>;
+
+  /**
+   * Partial<T> only O in T
+   */
+  export type PartialOnly<
+    T extends Record<string, any>,
+    O extends keyof T,
+  > = Omit<T, O> & Partial<Pick<T, O>>;
+
+  /**
+   * Required<T> but B in T
+   */
+  export type RequiredBut<
+    T extends Record<string, any>,
+    B extends keyof T,
+  > = Required<Omit<T, B>> & Pick<T, B>;
+
+  /**
+   * Required<T> only O in T
+   */
+  export type RequiredOnly<
+    T extends Record<string, any>,
+    O extends keyof T,
+  > = Omit<T, O> & Required<Pick<T, O>>;
+
+  /**
+   * Readonly<T> but B in T
+   */
+  export type ReadonlyBut<
+    T extends Record<string, any>,
+    B extends keyof T,
+  > = Readonly<Omit<T, B>> & Pick<T, B>;
+
+  /**
+   * Readonly<T> only O in T
+   */
+  export type ReadonlyOnly<
+    T extends Record<string, any>,
+    O extends keyof T,
+  > = Omit<T, O> & Readonly<Pick<T, O>>;
+
+  /**
+   * to type from interface T extends Record<string, any>
+   */
+  export type ToType<T extends Record<string, any>> = {
+    [k in keyof T]: T[k];
+  };
 }
