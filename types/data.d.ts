@@ -82,12 +82,12 @@ declare namespace useTypes.data {
   }
 
   /**
-   * custom response type form backend
+   * custom response type from backend
    */
   export interface ICustomResponse {}
 
   /**
-   * common response type, data is T, form backend
+   * common response type, data is T, from backend
    */
   export interface IResponse<T> extends ICustomResponse, Record<string, any> {
     success: boolean;
